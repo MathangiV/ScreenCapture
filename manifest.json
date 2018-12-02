@@ -1,0 +1,32 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 2,
+  "name": "Screen Capture",
+  "short_name": "ScreenCapture",
+  "description": "Capture your web pages",
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_icon": "icons/favicon.png",
+    "default_popup": "popup.html",
+    "default_title": "Capture current page using Screen Capture"
+  },
+  "content_scripts": [ {
+    "js": [ "content_script.js" ],
+    "matches": [ "file://*/*", "http://*/*", "https://*/*" ]
+  }],
+  "icons": { 
+    "16": "icons/favicon-16x16.png",
+    "32": "icons/favicon-32x32.png",
+    "96": "icons/favicon-96x96.png"
+  },
+  "incognito": "spanning",
+  "web_accessible_resources": [
+    "editor/editor.html"
+  ],
+  "permissions": [ "tabs", "http://*/*", "https://*/*", "<all_urls>", "cookies", "clipboardWrite", "clipboardRead" ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "version": "1.4.1.0"
+}
